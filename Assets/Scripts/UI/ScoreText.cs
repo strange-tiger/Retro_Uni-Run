@@ -12,6 +12,16 @@ public class ScoreText : MonoBehaviour
         scoreText = GetComponent<TextMeshProUGUI>();
     }
 
-    // 점수를 증가시키는 메서드
+    void OnEnable()
+    {
+        GameManager.Instance.OnScoreChanged.AddListener(UpdateText);
+    }
+
+    // 점수를 증가시키는 메서드    // 식 본문 (Expression Body)
     public void UpdateText(int score) => scoreText.text = $"SCORE: {score}";
+
+    void OnDisable()
+    {
+        GameManager.Instance.OnScoreChanged.RemoveListener(UpdateText);
+    }
 }

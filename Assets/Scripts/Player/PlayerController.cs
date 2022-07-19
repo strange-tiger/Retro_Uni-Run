@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
             isOnGround = true;
             jumpCount = 0;
 
-            GameManager.Instance.AddScore();
+            // GameManager.Instance.AddScore();
         }
     }
 
